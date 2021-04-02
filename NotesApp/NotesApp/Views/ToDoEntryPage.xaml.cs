@@ -21,6 +21,7 @@ namespace NotesApp.Views
         {
             InitializeComponent();
             BindingContext = new ToDo();
+            _toDoRepository = new ToDoRepository();
         }
 
         private async void OnSaveButtonClicked(object sender, EventArgs e)
