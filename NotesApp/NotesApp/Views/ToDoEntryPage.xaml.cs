@@ -12,10 +12,23 @@ using Xamarin.Forms.Xaml;
 
 namespace NotesApp.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    [QueryProperty(nameof(TodoId), nameof(TodoId))]
     public partial class ToDoEntryPage : ContentPage
     {
         private ToDoRepository _toDoRepository;
+
+        public int TodoId
+        {
+            set
+            {
+                LoadTodo(value);
+            }
+        }
+
+        private void LoadTodo(int value)
+        {
+            BindingContext = _toDoRepository.GetTodo(value);
+        }
 
         public ToDoEntryPage()
         {

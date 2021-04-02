@@ -38,5 +38,11 @@ namespace NotesApp.Views
             // "nameof" gebruiken om te vermijden dat letterlijk naar klassen verwezen wordt
             await Shell.Current.GoToAsync(nameof(ToDoEntryPage));
         }
+
+        private async void MyToDos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ToDo toDo = (ToDo)e.CurrentSelection.FirstOrDefault();
+            await Shell.Current.GoToAsync($"{nameof(ToDoEntryPage)}?{nameof(ToDoEntryPage.TodoId)}={toDo.Id}");
+        }
     }
 }

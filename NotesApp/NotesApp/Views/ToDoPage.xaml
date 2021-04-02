@@ -11,7 +11,8 @@
         <StackLayout>
             <CollectionView x:Name="myToDos"
                             Margin="20"
-                            SelectionMode="Single">
+                            SelectionMode="Single"
+                            SelectionChanged="MyToDos_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
